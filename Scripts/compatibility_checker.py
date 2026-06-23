@@ -99,6 +99,8 @@ class CompatibilityChecker:
                     pass
                 elif device_id.startswith("8A"):
                     min_version = "19.4.0"
+                elif device_id.startswith("9A"):
+                    min_version = "19.0.0"
                 else:
                     max_version = min_version = None
 
