@@ -221,6 +221,13 @@ class ConfigProdigy:
             igpu_properties["enable-cdclk-frequency-fix"] = "01000000"
             igpu_properties["framebuffer-stolenmem"] = "00003001"
             igpu_properties["framebuffer-fbmem"] = "00009000"
+        elif device_id.startswith("9A"):
+            native_supported_ids = ("9A40", "9A49", "9A59", "9A60", "9A68", "9A70", "9A78")
+            if not device_id in native_supported_ids:
+                igpu_properties["device-id"] = "499A0000"
+            igpu_properties["AAPL,ig-platform-id"] = "0100499A"
+            igpu_properties["framebuffer-stolenmem"] = "00003001"
+            igpu_properties["framebuffer-fbmem"] = "00009000"
 
         if any(tuple(map(int, "3840x2160".split("x"))) <= tuple(map(int, monitor_info.get("Resolution").split("x"))) for monitor_name, monitor_info in monitor.items()):
             if platform == "Laptop":

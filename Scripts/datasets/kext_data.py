@@ -131,6 +131,22 @@ kexts = [
         }
     ),
     KextInfo(
+        name = "AppleIntelTGLController", 
+        description = "Intel Tiger Lake (Gen12 / Xe-LP) Graphics Driver for macOS",
+        category = "Graphics",
+        min_darwin_version = "19.0.0",
+        requires_kexts = ["Lilu"],
+        conflict_group_id = "GPU",
+        github_repo = {
+            "owner": "aquaticcalf",
+            "repo": "Appleinteltgldriver.kext"
+        },
+        download_info = {
+            "id": int("".join(random.choices('0123456789', k=9))), 
+            "url": "https://nightly.link/aquaticcalf/Appleinteltgldriver.kext/workflows/build/main/AppleIntelTGLController-Release.zip"
+        }
+    ),
+    KextInfo(
         name = "WhateverGreen", 
         description = "Various patches necessary for GPUs are pre-supported",
         category = "Graphics",

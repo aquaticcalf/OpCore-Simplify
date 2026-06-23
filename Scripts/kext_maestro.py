@@ -158,6 +158,8 @@ class KextMaestro:
                 if "AMD" in gpu_props.get("Manufacturer"):
                     selected_kexts.append("NootedRed")
                 else:
+                    if "Tiger Lake" in hardware_report.get("CPU", {}).get("Codename", ""):
+                        selected_kexts.append("AppleIntelTGLController")
                     selected_kexts.append("WhateverGreen")
             else:
                 if "Navi 22" in gpu_props.get("Codename"):
